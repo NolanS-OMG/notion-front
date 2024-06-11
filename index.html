@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <title>Tu Portafolio Web</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    
+      box-sizing: border-box;
+      font-family: "Montserrat", sans-serif;
+      font-optical-sizing: auto;
+      font-style: normal;
+    }
+    
+    :root {
+      --background: #08090A;
+      --second: #222823;
+      --third: #575A5E;
+      --fourth: #A7A2A9;
+      --fifth: #F4F7F5;
+    }
+    
+    body {
+      background: var(--background);
+    
+      color: var(--fourth);
+    }
+    
+    h1,h2,h3,h4,h5,h6 {
+      color: var(--fifth);
+    }
+    
+    strong {
+      color: var(--fifth);
+    }
+    
+    header {
+      width: 100%;
+      height: 100vh;
+    
+      display: flex;
+    }
+    
+    .margin-auto {
+      margin: auto;
+    }
+    
+    .display-none {
+      display: none;
+    }
+    .display-flex {
+      display: flex;
+    }
+    .display-flex > span {
+      margin-right: 0.5em;
+    }
+    .flex-direction-column {
+      flex-direction: column;
+    }
+    .width-80 {
+      width: 80%;
+    }
+    .width-50 {
+      width: 50%;
+    }
+    .width-fit-content {
+      width: fit-content;
+    }
+    .height-100 {
+      height: 100%;
+    }
+    .height-30vw {
+      height: 30vw;
+    }
+    .margin-left-auto {
+      margin-left: auto;
+    }
+    .font-size-xx-large {
+      font-size: xx-large;
+    }
+    .font-size-x-large {
+      font-size: x-large;
+    }
+    .font-size-larger {
+      font-size: larger;
+    }
+    .font-size-large {
+      font-size: large;
+    }
+    .font-size-medium {
+      font-size: medium;
+    }
+    .position-relative {
+      position: relative;
+    }
+    .align-items-center {
+      align-items: center;
+    }
+    .justify-content-center {
+      justify-content: center;
+    }
+    .overflow-hidden {
+      overflow: hidden;
+    }
+    
+    #projectTitle { 
+      position: relative; 
+      float: left;
+    
+      width: 8em;
+    }
+    #projectTitle > span {
+        position:absolute;
+        right:0;
+        width:0;
+        background: var(--background);
+        border-left: 1px solid var(--fifth);
+        animation: escribir 2s infinite alternate;
+    }
+    
+    @keyframes escribir {
+      0% { width: 100% }
+      5% { width: 100%; }
+      67% { width:0 }
+      100% { width:0 }
+    }
+    
+    #frontSVG {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    
+      padding: 55px;
+    
+      filter: invert(0.95);
+    
+      object-fit: contain;
+    
+      animation-name: bajar;
+      animation-duration: 4s;
+      animation-timing-function: ease;
+      animation-direction: normal;
+      animation-iteration-count: infinite;
+    }
+    
+    @keyframes bajar {
+      0% { top: -100% }
+      3% { top: -100%; }
+      25% { top: 0 }
+      75% { top: 0 }
+      97% {top: 100%}
+      100% { top: 100% }
+    }
+  </style>
+
+</head>
+<body>
+  <nav></nav>
+  <header>
+    <div class="width-80 margin-auto display-flex height-30vw" id="isVisible">
+
+      <div class="width-50 display-flex flex-direction-column height-100 align-items-center justify-content-center">
+        <h4 class="width-fit-content margin-left-auto font-size-larger">Tu propio Portafolio Web</h4>
+        <p class="display-flex width-fit-content margin-left-auto font-size-medium">
+          <span>Muestra tus proyectos de </span><strong id="projectTitle">PROGRAMACIÓN<span>&#160;</span></strong>
+        </p>
+      </div>
+
+      <div class="width-50 position-relative height-100 overflow-hidden" id="svgContainer">
+        <img src="./assets/svg/graphic.svg" alt="" id="frontSVG">
+      </div>
+    </div>
+  </header>
+  <section></section>
+  <footer></footer>
+
+  <script>
+    const perfiles = [
+  "Diseño gráfico",
+  "Programación",
+  "Fotografía",
+  "Arquitectura",
+  "Arte",
+  "Escritura",
+  "Marketing",
+  "Educación",
+  "Música",
+  "Cualquier cosa"
+];
+
+const profiles = [
+  "Graphic Design",
+  "Coding",
+  "Photograph",
+  "Architecture",
+  "Art",
+  "Writing",
+  "Marketing",
+  "Education",
+  "Musica",
+  "Anything"
+];
+
+const architectSVG = '<svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">'+
+  '<path d="M4 9.5L.5 13H3v9h7v-6h4v6h7v-9h2.5L12 1.5l-4 4V3H4zM5 4h2v3.914l5-5L21.086 12H20v9h-5v-6H9v6H4v-9H2.914L5 9.914z"/>'+
+  '<path fill="none" d="M0 0h24v24H0z"/>'+
+'</svg>';
+
+const artSVG = '<svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">'+
+  '<path d="M21.73 10.456l.685-.742A2.454 2.454 0 0 1 23 11.433c0 2.744-3.938 5.032-7.947 5.941l1.396-1.434c3.007-1.002 5.55-2.746 5.55-4.507a1.595 1.595 0 0 0-.268-.977zm-19.53.25c0-3.745 5.101-6.434 9.664-6.505h.16c2.01 0 2.323.337 2.539.57a1.266 1.266 0 0 1 .331.918 2.856 2.856 0 0 1-.142.824 3.555 3.555 0 0 0-.17.991 1.863 1.863 0 0 0 1.632 1.882l.862-.84c-.873-.102-1.494-.342-1.494-1.042 0-.548.312-.997.312-1.815a2.27 2.27 0 0 0-.606-1.607c-.345-.372-.817-.88-3.264-.88h-.16C6.828 3.28 1.2 6.237 1.2 10.704c0 3.164 2.758 5.244 5.785 6.292a3.098 3.098 0 0 1 1.147-.683c-3.038-.84-5.932-2.76-5.932-5.609zM12 7.5A1.5 1.5 0 1 1 10.5 6 1.5 1.5 0 0 1 12 7.5zm-1 0a.5.5 0 1 0-.5.5.5.5 0 0 0 .5-.5zM6.5 11A1.5 1.5 0 1 1 8 9.5 1.5 1.5 0 0 1 6.5 11zM7 9.5a.5.5 0 1 0-.5.5.5.5 0 0 0 .5-.5zm3 4A1.5 1.5 0 1 1 8.5 12a1.5 1.5 0 0 1 1.5 1.5zm-1 0a.5.5 0 1 0-.5.5.5.5 0 0 0 .5-.5zm13.11-7.483L18.4 9.35l-7.45 7.25 1.4 1.4 7.25-7.449 3.383-3.661a.626.626 0 0 0-.873-.873zM9.368 17.619l1.439 1.738a2.94 2.94 0 0 1-1.63 2.234 3.92 3.92 0 0 1-1.626.359 3.598 3.598 0 0 1-1.733-.427s1.8-.968 1.809-2.464c.006-1.38 1.451-1.44 1.703-1.44zm.35 1.99l-.78-.94a.379.379 0 0 0-.311.395 3.191 3.191 0 0 1-.633 1.85 3.042 3.042 0 0 0 .772-.234 1.823 1.823 0 0 0 .952-1.07z"/>'+
+  '<path fill="none" d="M0 0h24v24H0z"/>'+
+'</svg>';
+
+const codeSVG = '<svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">'+
+  '<path d="M9 12v1h1v-1H9zm-2 0v1h1v-1H7zm-2 0v1h1v-1H5zm4-4v1h1V8H9zM7 8v1h1V8H7zM5 8v1h1V8H5zm4-4v1h1V4H9zM7 5h1V4H7v1zM5 5h1V4H5v1zm4 3v1h1V8H9zM7 9h1V8H7v1zM5 9h1V8H5v1zm4 3v1h1v-1H9zm-2 1h1v-1H7v1zm-2 0h1v-1H5v1zm17 2V2H2v13h13v3h-2v1H4v1h9v1h5v-1h2v-1h-2v-1h-2v-3h6zM3 3h18v3H3V3zm0 4h18v3H3V7zm14 12v1h-3v-1h3zM3 14v-3h18v3H3zm6-1h1v-1H9v1zm0-4h1V8H9v1zm0-4h1V4H9v1zm-2 8h1v-1H7v1zm0-4h1V8H7v1zm0-4h1V4H7v1zm-2 8h1v-1H5v1zm0-4h1V8H5v1zm0-4h1V4H5v1zm4-1v1h1V4H9zM7 4v1h1V4H7zM5 4v1h1V4H5z"/>'+
+  '<path fill="none" d="M0 0h24v24H0z"/>'+
+'</svg>';
+
+const educationSVG = '<svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">'+
+  '<path d="M17.673 5.606a3326.02 3326.02 0 0 1-5.671-2.674L.138 8.524l2.03.98L2 9.531V20h1v-9.626l.72-.124.28.135v5.288c0 .914 5.206 3.533 6.249 4.049a3.89 3.89 0 0 0 3.48-.026C20 16.486 20 15.895 20 15.673v-5.288l3.854-1.857s-3.8-1.801-6.181-2.922zM19 15.504a51.526 51.526 0 0 1-5.726 3.302 2.884 2.884 0 0 1-2.582.02A40.184 40.184 0 0 1 5 15.521v-4.655l7 3.373 7-3.373zm-7-2.373L5.416 9.958l6.469-1.115-.17-.987-7.85 1.354-1.403-.676 9.537-4.495c.825.393 8.523 4.014 9.542 4.494z"/>'+
+  '<path fill="none" d="M0 0h24v24H0z"/>'+
+'</svg>';
+
+const graphicSVG = '<svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">'+
+  '<path d="M7.52 15H1V1h16v4.52l-1 1V2H2v7.2l1.4-1.4a.377.377 0 0 1 .533 0 .377.377 0 0 0 .534 0l2.69-2.69a.377.377 0 0 1 .508-.023l2.706 2.256a.377.377 0 0 0 .468.012l1.633-1.225a.377.377 0 0 1 .493.035L14.66 7.86l-.707.707-1.313-1.313-1.2.9a1.375 1.375 0 0 1-1.71-.044L7.461 6.22 5.173 8.509a1.37 1.37 0 0 1-.973.402 1.387 1.387 0 0 1-.429-.068L2 10.614V14h6.52zM10.5 3.479v.043a.981.981 0 0 0 .979.978h.043a.979.979 0 0 0 .978-.979A1.021 1.021 0 0 0 11.479 2.5a.979.979 0 0 0-.979.979zM21.536 4.52a.965.965 0 0 0-1.385-.03L6.998 17.644 5.242 21.74a.371.371 0 0 0 .488.487l4.096-1.756L22.979 7.32a.965.965 0 0 0-.03-1.385zM6.78 20.688l.962-2.24 1.28 1.28zm3.015-1.6l-1.413-1.414L18.679 7.376l1.414 1.414zM21.952 6.932L20.8 8.083l-1.414-1.414L20.555 5.5a.42.42 0 0 1 .599.007l.804.838a.42.42 0 0 1-.006.587z"/>'+
+  '<path fill="none" d="M0 0h24v24H0z"/>'+
+'</svg>';
+
+const marketingSVG = '<svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.476 0H7.524A1.524 1.524 0 0 0 6 1.524v19.952A1.524 1.524 0 0 0 7.524 23h9.952A1.524 1.524 0 0 0 19 21.476V1.524A1.524 1.524 0 0 0 17.476 0zM18 21.477a.524.524 0 0 1-.524.523H14v-1h-3v1H7.524A.524.524 0 0 1 7 21.477V20h11zM18 19H7V3h11zm0-17H7v-.477A.524.524 0 0 1 7.524 1h9.952a.524.524 0 0 1 .524.523zm-7.8 5.7v7.6l6-3.8zm.8 1.453l3.705 2.347L11 13.847z"/><path fill="none" d="M0 0h24v24H0z"/></svg>';
+
+const musicSVG = '<svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.915 6.702a6.249 6.249 0 0 0-.77-.45h.01A3.612 3.612 0 0 1 13 3.026V2.5h-1v13.96a3.965 3.965 0 0 0-2.508-.417C7.562 16.3 5.996 17.61 6 18.963s1.578 2.249 3.508 1.993c1.867-.246 3.38-1.481 3.474-2.788H13V6.996a5.411 5.411 0 0 1 2.159.703 6.036 6.036 0 0 1 2.176 2.15 6.365 6.365 0 0 1 .25 5.94l.481.211a6.982 6.982 0 0 0-2.15-9.298z"/><path fill="none" d="M0 0h24v24H0z"/></svg>';
+
+const otrosSVG = '<svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M1 20.56c0 .794.646 1.44 1.44 1.44h19.12c.795 0 1.44-.646 1.44-1.44V6.44C23 5.646 22.354 5 21.56 5H17V3.5A1.5 1.5 0 0 0 15.5 2h-7A1.5 1.5 0 0 0 7 3.5V5H2.44a1.44 1.44 0 0 0-1.436 1.401L1 20.56zM16 11h1v3h-1v-3zM8 3.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5V5H8V3.5zM2.5 6h18.96a.49.49 0 0 1 .226.059c.07.036.123.08.154.116v.001h.001c.03.036.066.094.09.167a.433.433 0 0 1 .028.208l-.006.027v.005l-.582 2.493A3.485 3.485 0 0 1 18 11.993V10h-3v2H9v-2H6v1.996a3.487 3.487 0 0 1-3.41-2.92l-.583-2.493v-.004l-.006-.028a.428.428 0 0 1 .028-.21.53.53 0 0 1 .09-.164.53.53 0 0 1 .155-.118A.493.493 0 0 1 2.5 6zM7 11h1v3H7v-3zm14.56 10H2.44a.44.44 0 0 1-.44-.44V10.445a4.47 4.47 0 0 0 4 2.551V15h3v-2h6v2h3v-2.007a4.478 4.478 0 0 0 4-2.639V20.56a.44.44 0 0 1-.44.44zm1.38-14.253v-.018.018z"/><path fill="none" d="M0 0h24v24H0z"/></svg>';
+
+const photographSVG = '<svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14.5 8a4.5 4.5 0 1 0 4.5 4.5A4.505 4.505 0 0 0 14.5 8zm0 8a3.5 3.5 0 1 1 3.5-3.5 3.504 3.504 0 0 1-3.5 3.5zM8 9H4V8h4zm13 11H3a2.002 2.002 0 0 1-2-2V8a2.002 2.002 0 0 1 2-2h1V5h4v1h1.5a.5.5 0 0 0 .5-.5A1.502 1.502 0 0 1 11.5 4h6A1.502 1.502 0 0 1 19 5.5a.5.5 0 0 0 .5.5H21a2.002 2.002 0 0 1 2 2v10a2.002 2.002 0 0 1-2 2zM3 7a1.001 1.001 0 0 0-1 1v10a1.001 1.001 0 0 0 1 1h18a1.001 1.001 0 0 0 1-1V8a1.001 1.001 0 0 0-1-1h-1.5A1.502 1.502 0 0 1 18 5.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0-.5.5A1.502 1.502 0 0 1 9.5 7H7V6H5v1z"/><path fill="none" d="M0 0h24v24H0z"/></svg>';
+
+const writingSVG = '<svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3.2 19h1.1c1.6-.2 4-1.2 14.7-12.2v2.6l-4.4 4.3.7.7L20 9.8v-4l.7-.8c.4-.4.4-1 0-1.4l-.1-.1.4-.4-1.6-1.6-.4.4-.1-.1c-.2-.2-.5-.3-.7-.3-.3 0-.5.1-.7.3l-2.8 2.8C10 9.4 4.1 15.3 3.4 17.2c-.1.4-.2.7-.2 1.1v.7zm15-16.5L20 4.3c-3.4 3.5-6 6.1-8 8l-1.7-1.7c1.7-1.8 7.1-7.3 7.9-8.1zM4.3 17.6c.4-1 2.6-3.5 5.3-6.3l1.7 1.7c-4.6 4.3-6.1 4.9-7 5h-.1c0-.2.1-.3.1-.4zm18.3 5.3c-1.9.8-4 1.1-6.1 1-3.4 0-4.8-.9-5.4-1.4-.3-.2-.3-.7 0-.9.1-.1.3-.2.5-.2 3.3 0 4.5-.7 4.5-1.4 0-.5-1.2-1-2.6-1-1.6.1-3.1.7-4.2 1.9C8 22.2 6.3 23 4.5 23c-.7 0-1.4 0-2.1-.2-.8-.2-1.4-1-1.3-1.9 0-.9.8-1.5 1.2-1.7l.7.7-.1.1c-.6.4-.9.7-.9.9 0 .4.2.8.7.9.5.2 1.1.2 1.7.2 1.6-.1 3.1-.7 4.2-1.9 1.3-1.3 3-2.1 4.8-2.1 1.6 0 3.6.5 3.6 2 0 .8-.6 2.1-4.3 2.4 1.2.4 2.5.6 3.8.6 2 .1 3.9-.2 5.8-.9l.3.8z"/><path fill="none" d="M0 0h24v24H0z"/></svg>';
+
+const svgRoutes = [
+  "./assets/svg/graphic.svg",
+  "./assets/svg/code.svg",
+  "./assets/svg/photograph.svg",
+  "./assets/svg/arquitect.svg",
+  "./assets/svg/art.svg",
+  "./assets/svg/writing.svg",
+  "./assets/svg/marketing.svg",
+  "./assets/svg/education.svg",
+  "./assets/svg/music.svg",
+  "./assets/svg/otros.svg"
+];
+
+const svgHTML = [
+  graphicSVG,
+  codeSVG,
+  photographSVG,
+  architectSVG,
+  artSVG,
+  writingSVG,
+  marketingSVG,
+  educationSVG,
+  musicSVG,
+  otrosSVG
+];
+
+let language = true; // true == Español | false == Inglés
+
+let index = 0;
+
+let visible = true;
+
+let start = Date.now();
+
+const isVisible = document.getElementById("isVisible");
+const svgContainer = document.getElementById("svgContainer");
+
+const projectTitle = document.getElementById("projectTitle");
+const frontSVG = document.getElementById("frontSVG");
+
+function increment(time) {
+
+  let elapsedTime = 0;
+
+  if(visible) {
+    setTitle();
+    // setSVG();
+    putSVG();
+
+    index += 1;
+    if( index >= profiles.length ) {
+      index = 0;
+    }
+  } else {
+    let now = Date.now();
+    elapsedTime = now - start;
+  }
+
+  console.log( visible, elapsedTime );
+
+  let delay = elapsedTime > 0 ? 0 : time;
+
+  setTimeout( () => {
+    console.log( 'delay:', delay );
+    increment(time);
+  }, delay );
+}
+
+function setTitle() {
+  projectTitle.innerHTML = `${language ? perfiles[index] : profiles[index]} <span>&#160;</span>`;
+}
+
+function setSVG() {
+  frontSVG.src = svgRoutes[index];
+}
+
+function putSVG() {
+  svgContainer.innerHTML = svgHTML[index];
+}
+
+increment(4000);
+
+document.addEventListener('visibilitychange', function() {
+  visible = !document.hidden;
+  if (visible) {
+    console.log('visible');
+    start = Date.now();
+  } else {
+    console.log('not');
+  }
+});
+  </script>
+</body>
+</html>
